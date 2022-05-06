@@ -1,5 +1,0 @@
-CREATE TABLE t_items
-(itemId VARCHAR(20) PRIMARY KEY,
-itemName VARCHAR(100),
-itemCategory VARCHAR(50), unitprice VARCHAR(20))
-WITH (KAFKA_TOPIC='pairings', KEY_FORMAT='JSON', VALUE_FORMAT='JSON');
