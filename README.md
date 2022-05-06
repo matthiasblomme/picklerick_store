@@ -7,17 +7,20 @@ I8C Hackaton
 
 ## Approach
 
-We felt that the use case closely resembles the Amazon online and brick&mortar store approach [Amazon Go](https://www.amazon.com/b?ie=UTF8&node=16008589011).
+We felt that the use case closely resembles the Amazon online and brick&mortar store approach [Amazon Go]
+(https://www.amazon.com/b?ie=UTF8&node=16008589011).
 Offering people personalized suggestions and discounts on any screen they prefer to use (be it a hand-held 
 scanner or their mobile devices).
 
 This drove us to develop a Python Web App that we are running from a Raspberry Pi and are accessing from a phone 
 and a tablet.
 
-Just to make things interesting, it seemed fun to incorporate a fully functional barcode scanner in the webapp (since ) 
-
+Just to make things interesting, it seemed fun to incorporate a fully functional barcode scanner in the webapp (since we 
+had a camera at our disposal).
 
 ## Setup 
+
+
 
 ### Web server and web app
 
