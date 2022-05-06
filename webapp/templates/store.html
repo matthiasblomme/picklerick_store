@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+    <script type=text/javascript>$(function(){$("#candyBTN").click(function(){$.post("/trackFunction",{location:"candy"});});});</script>
+    <script type=text/javascript>$(function(){$("#apothecaryBTN").click(function(){$.post("/trackFunction",{location:"apothecary"});});});</script>
+    <script type=text/javascript>$(function(){$("#appliancesBTN").click(function(){$.post("/trackFunction",{location:"appliances"});});});</script>
+    <script type=text/javascript>$(function(){$("#dairy-productsBTN").click(function(){$.post("/trackFunction",{location:"dairy-products"});});});</script>
+    <script type=text/javascript>$(function(){$("#vegetablesBTN").click(function(){$.post("/trackFunction",{location:"vegetables"});});});</script>
+    <script type=text/javascript>$(function(){$("#chocolateBTN").click(function(){$.post("/trackFunction",{location:"chocolate"});});});</script>
+    <script type=text/javascript>$(function(){$("#cookiesBTN").click(function(){$.post("/trackFunction",{location:"cookies"});});});</script>
+    <script type=text/javascript>$(function(){$("#fruitBTN").click(function(){$.post("/trackFunction",{location:"fruit"});});});</script>
+    <script type=text/javascript>$(function(){$("#wineBTN").click(function(){$.post("/trackFunction",{location:"wine"});});});</script>
+    <script type=text/javascript>$(function(){$("#chipsBTN").click(function(){$.post("/trackFunction",{location:"chips"});});});</script>
+    <script type=text/javascript>$(function(){$("#beerBTN").click(function(){$.post("/trackFunction",{location:"beer"});});});</script>
+    <script type=text/javascript>$(function(){$("#sodaBTN").click(function(){$.post("/trackFunction",{location:"soda"});});});</script>
+    <script type=text/javascript>$(function(){$("#canned-goodsBTN").click(function(){$.post("/trackFunction",{location:"canned-goods"});});});</script>
+    <script type=text/javascript>$(function(){$("#grain-productsBTN").click(function(){$.post("/trackFunction",{location:"grain-products"});});});</script>
+    <script type=text/javascript>$(function(){$("#butcherBTN").click(function(){$.post("/trackFunction",{location:"butcher"});});});</script>
+
+    <title>Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/store.css">
+    <link rel="icon" type="image/x-icon" href="/static/img/Pickle_rick_transparent_edgetrimmed.webp">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<header class="bg-light">
+    <ul class="nav nav-pills justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" href="/storePage">Store Layout</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/scanPage">Barcode Scanner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/cartFunction">Shopping cart</a>
+     </li>
+  </ul>
+</header> 
+<body  style="background-image: url(/static/img/background-store.jpg); background-repeat: no-repeat; background-size: cover;">
+                <div  id="store" class="container align-items-center bg-light border rounded border-3 border-dark p-5 margin-to" style="margin-top: 5%;">
+                    <h2 class="text-center">Welcome to the pickle store</h2>
+                    <div class="row">
+                        <input class="col-md-2" type = "button" id = "apothecaryBTN" value = "Apothecary"/>
+                        <div class="col-md-8"></div>
+                    </div>
+                <div class="row">
+                    <input class="col-md-2" type = "button" id = "dairy-productsBTN" value = "Dairy Products"/>
+                    <div class="col-md-2"></div>
+                    <input class="col-md-2" type = "button" id = "vegetablesBTN" value = "Vegetables"/>
+                    <input class="col-md-2" type = "button" id = "chocolateBTN" value = "Chocolate"/>
+                    <div class="col-md-2"></div>
+                    <input class="col-md-2" type = "button" id = "cookiesBTN" value = "cookies"/>
+                </div>
+                <div class="row">    
+                    <input class="col-md-2" type = "button" id = "candyBTN" value = "Candy"/>
+                    <div class="col-md-2"></div>
+                    <input class="col-md-2" type = "button" id = "fruitBTN" value = "Fruit"/>
+                    <input class="col-md-2" type = "button" id = "wineBTN" value = "Wine"/>
+                    <div class="col-md-2"></div>
+                    <input class="col-md-2" type = "button" id = "chipsBTN" value = "Chips"/>
+                </div>
+                <div class="row">
+                    <input class="col-md-2"  type = "button" id = "beerBTN" value = "Beer"/>
+                    <div class="col-md-8"></div>
+                    <input class="col-md-2" type = "button" id = "sodaBTN" value = "Soda"/>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <input class="col-md-2" type = "button" id = "canned-goodsBTN" value = "Canned Goods"/>
+                    <input class="col-md-2" type = "button" id = "grain-productsBTN" value = "Grain Products"/>
+                    <input class="col-md-2" type = "button" id = "butcherBTN" value = "Butcher"/>
+                    <input class="col-md-2" type = "button" id = "appliancesBTN" value = "Appliances"/>
+                </div>
+                </div>
+</body>    
+</html>

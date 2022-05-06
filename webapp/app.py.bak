@@ -1,0 +1,60 @@
+from flask import Flask, jsonify, render_template, request
+from confluent_kafka import Producer, Consumer, KafkaError, KafkaException
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')    
+    
+def error_cb(err):
+    """ The error callback is used for generic client errors. These
+        errors are generally to be considered informational as the client will
+        automatically try to recover from all errors, and no extra action
+        is typically required by the application.
+        For this example however, we terminate the application if the client
+        is unable to connect to any broker (_ALL_BROKERS_DOWN) and on
+        authentication errors (_AUTHENTICATION). """
+
+    print("Client error: {}".format(err))
+    if err.code() == KafkaError._ALL_BROKERS_DOWN or \
+       err.code() == KafkaError._AUTHENTICATION:
+        # Any exception raised from this callback will be re-raised from the
+        # triggering flush() or poll() call.
+        raise KafkaException(err)
+       
+p = Producer({
+'bootstrap.servers': 'pkc-lzvrd.us-west4.gcp.confluent.cloud:9092',
+'security.protocol': 'SASL_SSL',
+'sasl.mechanism': 'PLAIN',
+'sasl.username': 'S4UW24WLX4KYSHUR',
+'sasl.password': 'mj7sDKZ1ETTG+Vj83LaG75Owj/URxDLIbhYHHXjtyqiCZ5KGD0eqEDaIGCi54gsy',
+'error_cb': error_cb,
+})
+
+@app.route('/scanFunction')
+def scanFunction():
+    print('scanFunction')
+    p.produce('scan', key=b'scan 1', value=b'Scanning product')
+    p.poll(1)
+    p.flush(10)
+    return "Nothing"
+
+@app.route('/buyFunction')
+def buyFunction():
+    print('buyFunction')
+    p.produce('buya', key=b'buy 2', value=b'Buying products')
+    p.poll(1)
+    p.flush(10)
+    return "Nothing"
+
+@app.route('/trackFunction')
+def trackFunction():
+    print('trackFunction')
+    p.produce('track', key=b'track 1', value=b'Tracking customer')
+    p.poll(1)
+    p.flush(10)
+    return "Nothing"
+
+if __name__ == '__main__':
+   app.run()

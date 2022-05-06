@@ -1,0 +1,41 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title>Store- login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/static/img/Pickle_rick_transparent_edgetrimmed.webp">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/css/store.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type=text/javascript> $(function() { $("#LOGINBTN").click(function (event) { $.getJSON(' login', { },
+            function(data) { }); return false; }); }); </script> 
+      </head>
+      <body style="background-image: url(/static/img/background-store.jpg); background-repeat: no-repeat; background-size: cover;">
+        <div class="container p-5" id="login-form">
+          <br>
+          <form action="" method="POST" class="bg-white">
+            <div class="d-flex justify-content-center"><img class="center" src="/static/img/PickleGif.gif" width="20%" height="30%"></div>
+            <h2 class="text-center">Welcome to the pickle store</h2>
+            <div class="form-group row mb3">
+              <div class="col-sm-12">
+                <input id="UserID" class="form-control" placeholder="Enter UserID" type="text" name="UserID" value="{{
+                  request.form.UserID}}">
+              </div>
+            </div>
+            <div class="form-group row mb3">
+
+              <div class="col-sm-12">
+                <input id="StoreID" class="form-control" type="text" placeholder="Enter StoreID" name="StoreID" value="{{
+                  request.form.StoreID }}">
+              </div>
+            </div>
+            <input class="btn btn-primary" id="LOGINBTN" type="submit" value="Submit">
+          </form>
+          {% if error %}
+            <p class="error"><strong>Error:</strong> {{ error }}
+          {% endif %}
+        </div>
+      </body>
+</html>
+</html>
