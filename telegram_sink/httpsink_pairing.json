@@ -1,0 +1,23 @@
+{
+  "name": "Pickle_Store_pairing_notification_Telegram_Bot",
+  "config": {
+    "topics": "pairing.notification",
+    "input.data.format": "JSON",
+    "connector.class": "HttpSink",
+    "name": "Pickle_Store_pairing_notification_Telegram_Bot",
+    "kafka.auth.mode": "KAFKA_API_KEY",
+    "kafka.api.key":"<kafka key>",
+    "kafka.api.secret":"<kafka key>",
+    "http.api.url": "https://api.telegram.org/bot<api key>/sendMessage",
+    "request.method": "POST",
+    "headers": "Content-Type: application/json",
+    "request.body.format": "string",
+    "batch.max.size": "1",
+    "batch.prefix": "{\"chat_id\":\"<chat id>\",",
+    "batch.suffix": "}",
+    "regex.patterns": ".*PA_PAIRINGNAME=(.*?),.*ITEMNAME=(.*?)}",
+    "regex.replacements": "\"text\":\"$1 pairs very well with $2\"",
+    "regex.separator": "~",
+    "tasks.max": "1"
+  }
+}

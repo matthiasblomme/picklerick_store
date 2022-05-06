@@ -1,0 +1,25 @@
+{
+  "name": "Pickle_Store_promo_notification_Telegram_Bot",
+  "config": {
+    "topics": "st_promo_offer",
+    "input.data.format": "JSON",
+    "connector.class": "HttpSink",
+    "name": "Pickle_Store_promo_notification_Telegram_Bot",
+    "kafka.auth.mode": "KAFKA_API_KEY",
+    "kafka.api.key":"<kafka key>",
+    "kafka.api.secret":"<kafka key>",
+    "http.api.url": "https://api.telegram.org/bot<api key>/sendMessage",
+    "request.method": "POST",
+    "headers": "Content-Type: application/json",
+    "request.body.format": "string",
+    "batch.max.size": "1",
+    "batch.prefix": "{\"chat_id\":\"<chat id>\",",
+    "batch.suffix": "}",
+    "retry.on.status.codes": "400",
+    "max.retries": "1",
+    "regex.patterns": ".*P_ITEMNAME=(.*?),.*P_PROMOTION=(.*?),.*",
+    "regex.replacements": "\"text\":\"There is a $2 promotion on $1\"",
+    "regex.separator": "~",
+    "tasks.max": "1"
+  }
+}
