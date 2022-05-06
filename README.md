@@ -20,6 +20,57 @@ Just to make things interesting, it seemed fun to incorporate a fully functional
 ## Setup 
 
 ### Web server and web app
+<b>Setting up Flask webserver</b>
+In order to communicate to with Confluent Kafka we used a flask front-end web application. To set this up you'll need to install the following
+ - Python3.9
+ - python flask package
+ - pythpn pymonogo package
+ - python pyopenssl package
+ - python confluent_kafka package
+ 
+Flask is a web framework that's written in Python. Which allows you to write standard web applications.
+In this project it is used as a frontend to communicate with the confluent kafka API. This is done through the confluent_kafka module.
+
+To communicate with kafka we'll need to define a producer and consumer.
+<b>Producer</b><br/>
+```
+p = Producer({
+    'bootstrap.servers': 'URl of your Confluent Cloud instance',
+    'security.protocol': 'SASL_SSL',
+    'sasl.mechanism': 'PLAIN',
+    'sasl.username': 'your kafkaKey',
+    'sasl.password': 'your kafkaSecret',
+    'error_cb': error_cb,
+}
+```
+<b>Consumer</b><br/>
+```
+c = Consumer({
+    'bootstrap.servers': 'URl of your Confluent Cloud instance',
+    'security.protocol': 'SASL_SSL',
+    'sasl.mechanism': 'PLAIN',
+    'sasl.username': 'your kafkaKey',
+    'sasl.password': 'your kafkaSecret',
+    'group.id': "consumer groupID",
+    'error_cb': error_cb,
+})
+```
+The error_cb value is used for generic client errors. 
+To actually put data on our topic we'll use the produce() function.
+The poll() function is to receive an acknowledgement that the data has been sent.
+The flush() function calls the poll function untill the given timeout is reached.
+```
+    p.produce('inser your topic name', key="insert a key to pair with your data", "the data itself")
+    p.poll(1)
+    p.flush(10)
+```
+To consume data from a topic you first have to subscribe to it. This is through the subscribe() function for which you give the topic you want to consume as parameter.
+```
+    c.subscribe(topics=['put topic name here.'])
+```
+To poll for messages you use the same method as the Producer.
+And if you want to stop consuming just use the close() function.
+
 
 ### Telegram
 <b>Setting up Telegram to receive notifications</b><br/>
